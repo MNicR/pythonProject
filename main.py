@@ -9,17 +9,22 @@ from matplotlib import pyplot as plt
 import seaborn as sns
 from scipy import stats
 
-patients = pd.read_csv("patient_nos.csv")
-missing = patients.isnull
-print(missing)
-patients[['date', 'total', 'field1', 'field2', 'field3', 'field4', 'field5', 'field6', 'field7', 'field8', 'field9','field10', 'field11', 'field12', 'field13', 'field14', 'field15']] = patients[['Date', 'Total', 'field1', 'field2', 'field3', 'field4', 'field5', 'field6', 'field7', 'field8', 'field9', 'field10', 'field11', 'field12', 'field13', 'field14', 'field15']].fillna(0)
-print(patients)
+#patients = pd.read_csv("patient_nos.csv")
+average_quarterly_earnings = pd.read_csv("Average_Quarterly_Earnings.csv", index_col=0)
 
-#missing_values_count = patients.isnull().sum()
+#average_quarterly_earnings=average_quarterly_earnings.drop(['Statistic', 'Size of Employees per Enterprise', 'Economic Sector NACE Rev 2', 'UNIT'])
+
+#missing = patients.isnull
+#print(missing)
+missing_values_count = average_quarterly_earnings.isnull().sum()
 #print(missing_values_count[2:16])
 
-#patients=patients.dropna(axis = 1, how = 'all')
-#cleaned = patients.dropna()
+
+
+
+#patients=patients.drop(["field1"], axis=1 )
+#print(patients)
+
 
 #patients=pd.DateFrame(np.random.randn())
 #patients.iloc[:18, 2] = NA
@@ -30,8 +35,11 @@ print(patients)
 #print(patients.shape)
 #print(patients.columns)
 #print(patients.isnull().sum())
+print(average_quarterly_earnings[['Quarter', 'VALUE']])
 
-#print(cleaned)
+
+
+
 
 
 
